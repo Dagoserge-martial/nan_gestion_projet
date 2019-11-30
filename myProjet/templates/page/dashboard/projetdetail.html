@@ -9,7 +9,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Gestion de projet NaN <span class="badge badge-danger" style="margin-top: -28px;">Terminer</span></h1>
+            {% if projt %}
+            <h1>{{ projet.titre }} de {{ projet.client.nom }} <span class="badge badge-danger" style="margin-top: -28px;">Terminé</span></h1>
+            {% else %}
+            <h1>{{ projet.titre }} de {{ projet.client.nom }} <span class="badge badge-success" style="margin-top: -28px;">En coure ...</span></h1>
+            {% endif %}
             
           </div>
           <div class="col-sm-6">
@@ -42,20 +46,11 @@
                     <div class="callout callout-danger">
                         <h5>I am a danger callout!</h5>
 
-                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
-                        soul,
-                        like these sweet mornings of spring which I enjoy with my whole heart. <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, provident sunt?
-                        Blanditiis, ullam, ratione, consequatur dolore praesentium architecto 
-                        sunt delectus nostrum cum inventore quibusdam explicabo expedita numquam quaerat eaque obcaecati?<br><br>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ducimus, qui maxime, vel consectetur corrupti et suscipit reprehenderit
-                        eum in non cupiditate placeat voluptas eos. Quas delectus aliquam recusandae maiores!
-
-                    </p>
+                        <p>{{ projet.contenu }}</p>
                     <!-- this row will not appear when printing -->
                     <div class="row no-print">
                         <div class="col-12">
-                        <a href="#" target="_blank" class="btn btn-default float-right"><i class="fas fa-print"></i> Print</a>
+                        <a href="{{ projet.cahier_de_charge.url }}" target="_blank" class="btn btn-default float-right"><i class="fas fa-print"></i> Print</a>
                         </div>
                     </div>
                     </div>
