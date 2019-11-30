@@ -74,10 +74,12 @@ def detailuser(request, id):
 def projetdetail(request, id):
     projet = models.Projet.objects.get(pk=id)
     projt = models.Projet.objects.filter(isTermine=True)
+    taches = models.TacheUser.objects.filter(statut=True)
 
     data = {
         'projet':projet,
         'projt':projt,
+        'taches':taches
     }
     return render(request, 'page/dashboard/projetdetail.html', data)
 
