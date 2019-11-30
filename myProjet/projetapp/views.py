@@ -64,7 +64,10 @@ def detailuser(request, id):
     return render(request, 'page/dashboard/detail_user.html', data)
 
 def projetdetail(request):
-    return render(request, 'page/dashboard/projetdetail.html')
+    data = {
+        
+    }
+    return render(request, 'page/dashboard/projetdetail.html', data)
 
 def commit(request):
     return render(request, 'page/dashboard/commit.html')
