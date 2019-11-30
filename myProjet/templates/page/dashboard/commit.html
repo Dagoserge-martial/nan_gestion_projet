@@ -1,0 +1,259 @@
+{% extends 'base/dashboard/dashboard_base.html' %}
+
+{% block dashboard %}
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Nombre de commits <span class="badge badge-danger" style="margin-top: -28px;">115 Commits</span></h1>
+            
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'projetapp:home' %}">Home</a></li>
+              <li class="breadcrumb-item active">projets</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <div class="table-responsive mailbox-messages" style="padding: 0 10px;">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>UserImg</th>
+                    <th>Username</th>
+                    <th>Commts</th>
+                    <th>Sujet</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Reason</th>
+                </tr>
+                </thead>
+            <tbody>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td class=""><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td >22/11/2019</td>
+            <td >10h - 43mn</td>
+            <td class="mailbox-date">5 mins ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+                
+            </td>
+            <td class=""><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td >22/11/2019</td>
+            <td >10h - 00mn</td>
+            <td class="mailbox-date">28 mins ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+                
+            </td>
+            <td class=""><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td >22/11/2019</td>
+            <td >10h - 00mn</td>
+            <td class="mailbox-date">11 hours ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+                
+            </td>
+            <td class=""><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td >22/11/2019</td>
+            <td >22h - 47mn</td>
+            <td class="mailbox-date">15 hours ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+                
+            </td>
+            <td class=""><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td >22/11/2019</td>
+            <td >10h - 00mn</td>
+            <td class="mailbox-date">Yesterday</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td ><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td >22/11/2019</td>
+            <td > 11h - 17mn</td>
+            <td class="mailbox-date">2 days ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td ><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td >22/11/2019</td>
+            <td > 11h - 17mn</td>
+            <td class="mailbox-date">2 days ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td class=""><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td >22/11/2019</td>
+            <td >12h - 50mn</td>
+            <td class="mailbox-date">2 days ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td class=""><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td class="mailbox-subject">22/11/2019</td>
+            <td >12h - 50mn</td>
+            <td class="mailbox-date">2 days ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td ><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td class="mailbox-subject">22/11/2019</td>
+            <td >12h - 50mn</td>
+            <td class="mailbox-date">2 days ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td ><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td class="mailbox-subject">22/11/2019</td>
+            <td > 11h - 17mn</td>
+            <td class="mailbox-date">4 days ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td class=""><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td class="mailbox-subject">22/11/2019</td>
+            <td >12h - 50mn</td>
+            <td class="mailbox-date">12 days ago</td>
+            </tr>
+            <tr>
+            <td>
+                <a href="#">
+                    <div class="user-block">
+                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                    </div>
+                </a>
+            </td>
+            <td ><a href="#">Maxwel Dago</a></td>
+            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+            <td class="">Dinamisation Admin</td>
+            <td >Dinamisation de la page add</td>
+            <td class="mailbox-subject">22/11/2019</td>
+            <td > 11h - 17mn</td>
+            <td class="mailbox-date">12 days ago</td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- /.table -->
+    </div>
+    <!-- /.mail-box-messages -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'base/dashboard/dashboard_base.html' %}
+
+{% block dashboard %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Project Add</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'projetapp:home' %}">Home</a></li>
+              <li class="breadcrumb-item active">Project Add</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Projet</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <h1>${ test }</h1>
+              <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+              <div class="form-group">
+                <label for="inputName">Titre du projet</label>
+                <input type="text" id="inputName" name="titre" v-model="titre" id="titre" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputDescription"> Description</label>
+                <textarea id="inputDescription" name="description" v-model="description" id="description" class="form-control" rows="4"></textarea>
+              </div>
+            
+              <div class="row form-group">
+                <div class="col-md-6">
+                  <label for="inputClientCompany">Entreprise Cliente </label>
+                  <select class="form-control select2bs4" name="client" v-model="client" id="client" style="width: 100%;">
+                    <option selected="selected" disabled>Selectionnez</option>
+                    {% for client in clt %}
+                    <option value="{{ client.nom }}">{{ client.nom }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputEstimatedBudget">Estimation du budget</label>
+                  <input type="number" id="budjet" name="budjet" v-model="budjet" class="form-control">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-6">
+                  <label for="inputEstimatedBudget">Cahier de charge (PDF)</label>
+                  <input type="file" id="file" name="file" v-on:change="handleFileUpload()" ref="file" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label for="inputSpentBudget">Total depenses</label>
+                  <input type="number" id="dpense" name="dpense" v-model="dpense" class="form-control">
+                </div>
+              </div><br>
+                <div class="card-header">
+                  <h3 class="card-title">Periode</h3>
+                </div>
+                <div class="row form-group mt-3">
+                  <div class="col-md-6">
+                    <label for="ddebut">Date de debut</label>
+                    <input type="date" id="ddebut" name="ddebut" v-model="ddebut" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="dfin">Date de Fin</label>
+                    <input type="date" id="dfin" name="dfin" v-model="dfin" class="form-control">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <input type="submit" v-on:Click="onSubmit()" value="Create " class="btn btn-success float-right">
+                </div>
+              </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+  </script>
+  <!-- /.content-wrapper -->
+
+  {% endblock %}

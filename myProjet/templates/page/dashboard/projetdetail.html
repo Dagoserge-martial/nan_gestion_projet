@@ -1,0 +1,557 @@
+{% extends 'base/dashboard/dashboard_base.html' %}
+
+{% block dashboard %}
+
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Gestion de projet NaN <span class="badge badge-danger" style="margin-top: -28px;">Terminer</span></h1>
+            
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'projetapp:home' %}">Home</a></li>
+              <li class="breadcrumb-item active">projets</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-default">
+                    <div class="card-header">
+                    <h3 class="card-title" style="margin-bottom: 10px">CAHIER DE CHARGE</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                    </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                    <div class="callout callout-danger">
+                        <h5>I am a danger callout!</h5>
+
+                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
+                        soul,
+                        like these sweet mornings of spring which I enjoy with my whole heart. <br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, provident sunt?
+                        Blanditiis, ullam, ratione, consequatur dolore praesentium architecto 
+                        sunt delectus nostrum cum inventore quibusdam explicabo expedita numquam quaerat eaque obcaecati?<br><br>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ducimus, qui maxime, vel consectetur corrupti et suscipit reprehenderit
+                        eum in non cupiditate placeat voluptas eos. Quas delectus aliquam recusandae maiores!
+
+                    </p>
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print">
+                        <div class="col-12">
+                        <a href="#" target="_blank" class="btn btn-default float-right"><i class="fas fa-print"></i> Print</a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="callout callout-success">
+                        <h5>Le projet est achevé avec succes !</h5><br>
+
+                        <div class="progress" style="height: 1.2em!important">
+                            <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                            </div>
+                        </div>
+                        <span class="progress-description">100% en 10 jours</span>
+                        <div class="clearfix">
+                            <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#modal-xl"><i class="fas fa-eye"></i>Toute les taches</button>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+
+            <div class="col-md-6">
+                <!-- LINE CHART -->
+                <div class="card card-info">
+                    <div class="card-header">
+                    <h3 class="card-title">Graph</h3>
+    
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                    <div class="chart" style="overflow-X: scroll">
+                        <table class="table table-hover table-striped" >
+                            <thead>
+                                <tr>
+                                    <th>UserImg</th>
+                                    <th>Username</th>
+                                    <th>Commts</th>
+                                    <th>Sujet</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Reason</th>
+                                </tr>
+                                </thead>
+                            <tbody>
+                            <tr>
+                            <td>
+                                <a href="#">
+                                    <div class="user-block">
+                                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                                    </div>
+                                </a>
+                            </td>
+                            <td class=""><a href="#">Maxwel Dago</a></td>
+                            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+                            <td class="">Dinamisation Admin</td>
+                            <td >Dinamisation de la page add</td>
+                            <td >22/11/2019</td>
+                            <td >fffffff</td>
+                            <td class="mailbox-date">5 mins ago</td>
+                            </tr>
+                            <tr>
+                            <td>
+                                <a href="#">
+                                    <div class="user-block">
+                                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                                    </div>
+                                </a>
+                                
+                            </td>
+                            <td class=""><a href="#">Maxwel Dago</a></td>
+                            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+                            <td class="">Dinamisation Admin</td>
+                            <td >Dinamisation de la page add</td>
+                            <td >22/11/2019</td>
+                            <td >10h - 00mn</td>
+                            <td class="mailbox-date">28 mins ago</td>
+                            </tr>
+                            <tr>
+                            <td>
+                                <a href="#">
+                                    <div class="user-block">
+                                        <img class="img-circle" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Image">
+                                    </div>
+                                </a>
+                                
+                            </td>
+                            <td class=""><a href="#">Maxwel Dago</a></td>
+                            <td ><a href="#"><a href="#"><i class="fas fa-star text-warning"></i></a></a></td>
+                            <td class="">Dinamisation Admin</td>
+                            <td >Dinamisation de la page add</td>
+                            <td >22/11/2019</td>
+                            <td >10h - 00mn</td>
+                            <td class="mailbox-date">11 hours ago</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- /.table -->
+                    </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <!-- /.card-body -->
+                    <div class="card-footer text-center">
+                            <a href="{% url 'projetapp:commit' %}" class="small-box-footer">More users <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                        <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+                <!-- TO DO List -->
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="ion ion-clipboard mr-1"></i>Infos</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <ul class="todo-list" data-widget="todo-list">
+                        <li>
+                            <!-- drag handle -->
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <!-- todo text -->
+                            <span class="text">Nombre de commits</span>
+                            <!-- Emphasis label -->
+                            <small class="badge badge-danger">83 commits</small>
+                            <!-- General tools such as edit or delete-->
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <span class="text">Nombtre de jours</span>
+                            <small class="badge badge-info"><i class="far fa-clock"></i> 4 jours</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <span class="text">Date de debut</span>
+                            <small class="badge badge-warning"><i class="far fa-clock"></i> 18/12/2019</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <span class="text">Date de fin</span>
+                            <small class="badge badge-success"><i class="far fa-clock"></i> 18/12/2019</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="handle">
+                            <i class="fas fa-ellipsis-v"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                            </span>
+                            <span class="text">Nombre de participant</span>
+                            <small class="badge badge-primary"><i class="far fa-clock"></i> 4 personnes</small>
+                            <div class="tools">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                    <!-- <div class="card-footer clearfix">
+                        <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add item</button>
+                    </div> -->
+                </div>
+                <!-- /.card -->
+    
+            </div>
+            <!-- /.col (RIGHT) -->
+        </div>
+          <!-- TO DO List -->
+          <div class="card ">
+              <div class="card-header">
+                  <h3 class="card-title"><i class="ion ion-clipboard mr-1"></i>Participants</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body row">
+                    <!-- Widget: user widget style 1 -->
+                    <div class="card card-widget widget-user col-md-3">
+                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                        <div class="widget-user-header bg-info">
+                        <h3 class="widget-user-username">Alexander Pierce</h3>
+                        <h5 class="widget-user-desc">Developpeur Frontend</h5>
+                        </div>
+                        <a href="#1" class="widget-user-image">
+                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Avatar">
+                        </a>
+                        <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">3,200</h5>
+                                <span class="description-text">SALES</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">18</h5>
+                                <span class="description-text">Commits</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4">
+                            <div class="description-block">
+                                <h5 class="description-header">35</h5>
+                                <span class="description-text">PRODUCTS</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /.widget-user -->
+
+                    <!-- Widget: user widget style 1 -->
+                    <div class="card card-widget widget-user col-md-3">
+                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                        <div class="widget-user-header bg-info">
+                        <h3 class="widget-user-username">Alexander Pierce</h3>
+                        <h5 class="widget-user-desc">Developpeur Frontend</h5>
+                        </div>
+                        <a href="#1" class="widget-user-image">
+                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Avatar">
+                        </a>
+                        <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">3,200</h5>
+                                <span class="description-text">SALES</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">18</h5>
+                                <span class="description-text">Commits</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4">
+                            <div class="description-block">
+                                <h5 class="description-header">35</h5>
+                                <span class="description-text">PRODUCTS</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /.widget-user -->
+
+                    <!-- Widget: user widget style 1 -->
+                    <div class="card card-widget widget-user col-md-3">
+                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                        <div class="widget-user-header bg-info">
+                        <h3 class="widget-user-username">Alexander Pierce</h3>
+                        <h5 class="widget-user-desc">Developpeur Frontend</h5>
+                        </div>
+                        <a href="#1" class="widget-user-image">
+                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Avatar">
+                        </a>
+                        <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">3,200</h5>
+                                <span class="description-text">SALES</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">18</h5>
+                                <span class="description-text">Commits</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4">
+                            <div class="description-block">
+                                <h5 class="description-header">35</h5>
+                                <span class="description-text">PRODUCTS</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /.widget-user -->
+
+                    <!-- Widget: user widget style 1 -->
+                    <div class="card card-widget widget-user col-md-3">
+                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                        <div class="widget-user-header bg-info">
+                        <h3 class="widget-user-username">Alexander Pierce</h3>
+                        <h5 class="widget-user-desc">Developpeur Frontend</h5>
+                        </div>
+                        <a href="#1" class="widget-user-image">
+                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Avatar">
+                        </a>
+                        <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">3,200</h5>
+                                <span class="description-text">SALES</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 border-right">
+                            <div class="description-block">
+                                <h5 class="description-header">18</h5>
+                                <span class="description-text">Commits</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4">
+                            <div class="description-block">
+                                <h5 class="description-header">35</h5>
+                                <span class="description-text">PRODUCTS</span>
+                            </div>
+                            <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /.widget-user -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                  <a href="{% url 'projetapp:newusetask' %}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add User</a>
+              </div>
+          </div>
+      </div>
+      <!-- /.timeline -->
+      <div class="modal fade" id="modal-xl">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Condensed Full Width Table</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Taches</th>
+                                <th>Commits</th>
+                                <th>Username</th>
+                                <th>Progression</th>
+                                <th style="width: 40px">Label</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>Update software</td>
+                                <td>15 / 85 commits</td>
+                                <td>Maxwel Dago</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-danger">55%</span></td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>Clean database</td>
+                                <td>15 / 85 commits</td>
+                                <td>Maxwel Dago</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-warning">70%</span></td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td>Cron job running</td>
+                                <td>15 / 85 commits</td>
+                                <td>Maxwel Dago</td>
+                                <td>
+                                    <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-primary">30%</span></td>
+                            </tr>
+                            <tr>
+                                <td>4.</td>
+                                <td>Fix and squish bugs</td>
+                                <td>15 / 85 commits</td>
+                                <td>Maxwel Dago</td>
+                                <td>
+                                    <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-success">90%</span></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-plus"></i> Ajouté une tache</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal fade" id="modal-lg">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Extra Large Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}
