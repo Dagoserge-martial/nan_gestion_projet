@@ -9,7 +9,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Gestion de projet NaN <span class="badge badge-danger" style="margin-top: -28px;">Terminer</span></h1>
+            {% if projt %}
+            <h1>{{ projet.titre }} de {{ projet.client.nom }} <span class="badge badge-danger" style="margin-top: -28px;">Terminé</span></h1>
+            {% else %}
+            <h1>{{ projet.titre }} de {{ projet.client.nom }} <span class="badge badge-success" style="margin-top: -28px;">En coure ...</span></h1>
+            {% endif %}
             
           </div>
           <div class="col-sm-6">
@@ -42,20 +46,11 @@
                     <div class="callout callout-danger">
                         <h5>I am a danger callout!</h5>
 
-                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
-                        soul,
-                        like these sweet mornings of spring which I enjoy with my whole heart. <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, provident sunt?
-                        Blanditiis, ullam, ratione, consequatur dolore praesentium architecto 
-                        sunt delectus nostrum cum inventore quibusdam explicabo expedita numquam quaerat eaque obcaecati?<br><br>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ducimus, qui maxime, vel consectetur corrupti et suscipit reprehenderit
-                        eum in non cupiditate placeat voluptas eos. Quas delectus aliquam recusandae maiores!
-
-                    </p>
+                        <p>{{ projet.contenu }}</p>
                     <!-- this row will not appear when printing -->
                     <div class="row no-print">
                         <div class="col-12">
-                        <a href="#" target="_blank" class="btn btn-default float-right"><i class="fas fa-print"></i> Print</a>
+                        <a href="{{ projet.cahier_de_charge.url }}" target="_blank" class="btn btn-default float-right"><i class="fas fa-print"></i> Print</a>
                         </div>
                     </div>
                     </div>
@@ -267,16 +262,17 @@
               <!-- /.card-header -->
               <div class="card-body row">
                     <!-- Widget: user widget style 1 -->
-                    <div class="card card-widget widget-user col-md-3">
+                    {% for user in taches %}
+                    <div class="card card-widget widget-user col-md-4">
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Developpeur Frontend</h5>
+                        <h3 class="widget-user-username">{{ user.user.last_name }} {{ user.user.username }}</h3>
+                        <h5 class="widget-user-desc">{{ user.user.profile_user.fonction }}</h5>
                         </div>
-                        <a href="#1" class="widget-user-image">
-                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Avatar">
+                        <a href="{% url 'projetapp:detailuser' user.user.id %}" class="widget-user-image">
+                            <img class="img-circle elevation-2" src="{{ user.user.profile_user.image.url }}" alt="User Avatar">
                         </a>
-                        <div class="card-footer">
+                        <div class="card-footer" style="padding-top: 60px!important">
                         <div class="row">
                             <div class="col-sm-4 border-right">
                             <div class="description-block">
@@ -306,132 +302,7 @@
                         <!-- /.row -->
                         </div>
                     </div>
-                    <!-- /.widget-user -->
-
-                    <!-- Widget: user widget style 1 -->
-                    <div class="card card-widget widget-user col-md-3">
-                        <!-- Add the bg color to the header using any of the bg-* classes -->
-                        <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Developpeur Frontend</h5>
-                        </div>
-                        <a href="#1" class="widget-user-image">
-                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Avatar">
-                        </a>
-                        <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                                <h5 class="description-header">3,200</h5>
-                                <span class="description-text">SALES</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                                <h5 class="description-header">18</h5>
-                                <span class="description-text">Commits</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                            <div class="description-block">
-                                <h5 class="description-header">35</h5>
-                                <span class="description-text">PRODUCTS</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        </div>
-                    </div>
-                    <!-- /.widget-user -->
-
-                    <!-- Widget: user widget style 1 -->
-                    <div class="card card-widget widget-user col-md-3">
-                        <!-- Add the bg color to the header using any of the bg-* classes -->
-                        <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Developpeur Frontend</h5>
-                        </div>
-                        <a href="#1" class="widget-user-image">
-                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Avatar">
-                        </a>
-                        <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                                <h5 class="description-header">3,200</h5>
-                                <span class="description-text">SALES</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                                <h5 class="description-header">18</h5>
-                                <span class="description-text">Commits</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                            <div class="description-block">
-                                <h5 class="description-header">35</h5>
-                                <span class="description-text">PRODUCTS</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        </div>
-                    </div>
-                    <!-- /.widget-user -->
-
-                    <!-- Widget: user widget style 1 -->
-                    <div class="card card-widget widget-user col-md-3">
-                        <!-- Add the bg color to the header using any of the bg-* classes -->
-                        <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Developpeur Frontend</h5>
-                        </div>
-                        <a href="#1" class="widget-user-image">
-                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user1-128x128.jpg" alt="User Avatar">
-                        </a>
-                        <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                                <h5 class="description-header">3,200</h5>
-                                <span class="description-text">SALES</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                                <h5 class="description-header">18</h5>
-                                <span class="description-text">Commits</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                            <div class="description-block">
-                                <h5 class="description-header">35</h5>
-                                <span class="description-text">PRODUCTS</span>
-                            </div>
-                            <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        </div>
-                    </div>
+                    {% endfor %}
                     <!-- /.widget-user -->
               </div>
               <!-- /.card-body -->
@@ -462,11 +333,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for tache in taches %}
                             <tr>
-                                <td>1.</td>
-                                <td>Update software</td>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ tache.tache.tache }}</td>
                                 <td>15 / 85 commits</td>
-                                <td>Maxwel Dago</td>
+                                <td>{{ tache.user.username }}</td>
                                 <td>
                                     <div class="progress progress-xs">
                                     <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
@@ -474,42 +346,8 @@
                                 </td>
                                 <td><span class="badge bg-danger">55%</span></td>
                             </tr>
-                            <tr>
-                                <td>2.</td>
-                                <td>Clean database</td>
-                                <td>15 / 85 commits</td>
-                                <td>Maxwel Dago</td>
-                                <td>
-                                    <div class="progress progress-xs">
-                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-warning">70%</span></td>
-                            </tr>
-                            <tr>
-                                <td>3.</td>
-                                <td>Cron job running</td>
-                                <td>15 / 85 commits</td>
-                                <td>Maxwel Dago</td>
-                                <td>
-                                    <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-primary">30%</span></td>
-                            </tr>
-                            <tr>
-                                <td>4.</td>
-                                <td>Fix and squish bugs</td>
-                                <td>15 / 85 commits</td>
-                                <td>Maxwel Dago</td>
-                                <td>
-                                    <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar bg-success" style="width: 90%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-success">90%</span></td>
-                            </tr>
+                            {% endfor %}
+                            
                         </tbody>
                         </table>
                     </div>

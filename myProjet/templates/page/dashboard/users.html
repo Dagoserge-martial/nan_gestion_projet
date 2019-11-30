@@ -93,10 +93,10 @@
                     {% if forloop.counter > 1 %}
                     <tr>
                         <td>09/11/2019</td>
-                        <td>{{ use.last_name }} {{ use.username }}</td>
+                        <td><a href="{% url 'projetapp:detailuser' use.id %}"> {{ use.last_name }} {{ use.username }}</a> </td>
                         <td>{{ use.profile_user.fonction }}</td>
-                        <td>{{ use.profile_user.user }}</td>
-                        <td>{{ use.user_tachecommit.tache }}</td>
+                        <td>#</td>
+                        <td>#</td>
                         <td>{{ use.profile_user.promotion }}</td>
                     </tr>
                     {% endif %}

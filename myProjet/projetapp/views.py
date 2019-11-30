@@ -34,7 +34,15 @@ def home(request):
     return render(request, 'page/dashboard/dashboard.html', data)
 
 def projet(request):
-    return render(request, 'page/dashboard/list_projet.html')
+    projet= models.Projet.objects.all()
+    clent = models.Client.objects.all()
+    projt = models.Projet.objects.filter(isTermine=True)
+    data = {
+        'projet': projet,
+        'client': clent,
+        'projt': projt,
+    }
+    return render(request, 'page/dashboard/list_projet.html', data)
 
 def list_user(request):
     profile_all = models.TacheUser.objects.all()
@@ -63,9 +71,16 @@ def detailuser(request, id):
     #{% url 'detailuser' home.pk %}
     return render(request, 'page/dashboard/detail_user.html', data)
 
-def projetdetail(request):
+
+def projetdetail(request, id):
+    projet = models.Projet.objects.get(pk=id)
+    projt = models.Projet.objects.filter(isTermine=True)
+    taches = models.TacheUser.objects.filter(statut=True)
+
     data = {
-        
+        'projet':projet,
+        'projt':projt,
+        'taches':taches
     }
     return render(request, 'page/dashboard/projetdetail.html', data)
 
