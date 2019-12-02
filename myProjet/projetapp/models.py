@@ -110,7 +110,7 @@ class TacheUser(models.Model):
     projet = models.ForeignKey(Projet, related_name='user_projet', on_delete=models.CASCADE)
     tache = models.ForeignKey(Tache_projet, related_name='user_tache', on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name='user_tachecommit', on_delete=models.CASCADE)
-    durre =  models.TimeField(auto_now_add=True)
+    durre =  models.TimeField(auto_now_add=True) 
 
     statut = models.BooleanField(default=True)
     date_add =  models.DateTimeField(auto_now_add=True)

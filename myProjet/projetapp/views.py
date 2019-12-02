@@ -71,6 +71,7 @@ def detailuser(request, id):
     #{% url 'detailuser' home.pk %}
     return render(request, 'page/dashboard/detail_user.html', data)
 
+
 def projetdetail(request, id):
     projet = models.Projet.objects.get(pk=id)
     projt = models.Projet.objects.filter(isTermine=True)
