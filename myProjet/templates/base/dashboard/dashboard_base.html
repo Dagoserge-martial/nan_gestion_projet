@@ -184,7 +184,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link {{ dash }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -193,15 +193,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{% url 'projetapp:home' %}" class="nav-link active">
+                <a href="{% url 'projetapp:home' %}" class="nav-link {{ dash }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link {{ myuser }} {{ projets }}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Menu
@@ -210,13 +210,13 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <li class="nav-item {{ projets }}">
                 <a href="{% url 'projetapp:projet' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Projets</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {{ myuser }}">
                   <a href="{% url 'projetapp:list_user' %}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p> Users</p>
