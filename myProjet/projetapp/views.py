@@ -22,6 +22,7 @@ def home(request):
     profile = models.User.objects.all()
     print(nbpall)
     data = {
+        'dash': "active",
         'projett':projett,
         'nbprojetb':nbprojetb,
         'projet_all':projet_all,
@@ -30,6 +31,7 @@ def home(request):
         'nbpt': nbpt,
         'nbpc':nbpc,
         'profile':profile,
+        
     }
     return render(request, 'page/dashboard/dashboard.html', data)
 
@@ -38,6 +40,7 @@ def projet(request):
     clent = models.Client.objects.all()
     projt = models.Projet.objects.filter(isTermine=True)
     data = {
+        'projets': 'active',
         'projet': projet,
         'client': clent,
         'projt': projt,
@@ -51,6 +54,7 @@ def list_user(request):
     # print(proj)
 
     data = {
+        'myuser': 'active',
         'profile_all': profile_all,
         'users': users,
         #'proj':proj,
@@ -65,6 +69,7 @@ def detailuser(request, id):
     print(nbpt)
     # print(nb)
     data = {
+        'users': 'active',
         'profil':profil,
         'nbpt':nbpt,
     }
