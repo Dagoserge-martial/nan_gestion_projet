@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'projetapp.apps.ProjetappConfig',
     'social_django',
+    'projetapp.apps.ProjetappConfig',
+    'compte.apps.CompteConfig',
     'django_admin_generator',
     'api.apps.ApiConfig',
     'rest_framework',
@@ -54,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware', 
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'myProjet.urls'
@@ -70,7 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
+                'social_django.context_processors.backends',  
                 'social_django.context_processors.login_redirect',
             ],
         },
@@ -87,9 +88,12 @@ AUTHENTICATION_BACKENDS = (
 
 WSGI_APPLICATION = 'myProjet.wsgi.application'
 
-SOCIAL_AUTH_GITHUB_KEY = 'b68d4fa76b21d257c217'
-SOCIAL_AUTH_GITHUB_SECRET = 'ed0a06f13bf14a424822e55a3e79fa1e22d3159a'
+SOCIAL_AUTH_GITHUB_KEY = 'e4d68ca3cc14d1ddae74'
+SOCIAL_AUTH_GITHUB_SECRET = '269c48c58dfadbef7b72dbc1e01b677cc334ec11'
 
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/home/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

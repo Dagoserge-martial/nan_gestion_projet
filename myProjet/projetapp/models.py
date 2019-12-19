@@ -70,12 +70,13 @@ class Commit(models.Model):
     statut = models.BooleanField(default=True)
     date_add =  models.DateTimeField(auto_now_add=True)
     date_update =  models.DateTimeField(auto_now=True)
-
+    class Meta:
+        ordering = ['date_update']
 class Profile(models.Model):
     """Model definition for UserProfile."""
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile_user")
-    image = models.ImageField(upload_to="profile", default="omar-sy-by-rachel.jpg")
+    image = models.ImageField(upload_to="profile", default="profile/profile.jpg")
     fonction = models.CharField(max_length=155)
     promotion = models.CharField(max_length=155)
     adress = models.CharField(max_length=155)

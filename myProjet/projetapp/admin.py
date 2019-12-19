@@ -47,7 +47,7 @@ class ClientAdmin(admin.ModelAdmin):
 
 class ProjetAdmin(admin.ModelAdmin):
 
-    list_display = ('id','client','titre','description','cahier_de_charge','progression','isTermine','date_debut','date_fin','statut','date_add','date_update',)
+    list_display = ('id','client','titre','cahier_de_charge','progression','isTermine','date_debut','date_fin','statut','date_add','date_update',)
     list_filter = ('client','statut','date_add', 'date_update')
     search_fields = ('titre','progression',)
     actions = ('active', 'desactive')
@@ -116,13 +116,13 @@ class Tache_projetAdmin(admin.ModelAdmin):
 
 class CommitAdmin(admin.ModelAdmin):
 
-    list_display = ('id','id_commit','tache','user','commentaire','description','lien_git','statut','date_add','date_update',)
+    list_display = ('id','id_commit','tache','user','lien_git','statut','date_add','date_update',)
     list_filter = ('tache','user','statut','date_add','date_update',)
     
     search_fields = ('user','lien_git',)
     actions = ('active', 'desactive')
     date_hierarchy = "date_add"
-    list_display_links = ('id','commentaire',)
+    list_display_links = ('id','id_commit',)
     list_per_page = 30
     oerdering = ['id_commit',]
             

@@ -18,11 +18,11 @@
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
-            <div class="row">
-                <a href="{% url 'projetapp:newproject' %}" class="btn btn-sm bg-teal" style="float: right">
-                    <i class="fas fa-comments">Ajout de projet</i>
-                </a>
-            </div>
+            <!--<div class="row">
+            <a href="{% url 'projetapp:newproject' %}" class="btn btn-sm bg-teal" style="float: right">
+                <i class="fas fa-comments">Ajout de projet</i>
+            </a>
+        </div>-->
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -35,8 +35,8 @@
             <div class="card-header">
                 <h3 class="card-title">La Team de parainage </h3>
 
-                <div class="card-tools" style="margin-left: 10px">
-                    <span class="badge badge-danger"> {{ nbuser }} Membres</span>
+                <div class="card-tools" style="margin-left: 20px">
+                    <span class="badge badge-info">{{ useT }} Membres</span>
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                     </button>
                     <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
@@ -44,22 +44,7 @@
                 </div>
             </div>
             <!-- /.card-header -->
-            <!-- <div class="card-body p-0">
-                <ul class="users-list clearfix">
-                    {% for user in users %}
-                    {% if forloop.counter > 1 %}
-                    <li class="col-lg-2 col-md-4">
-                        <a href="{% url 'projetapp:detailuser' user.id %}">
-                            <img src="{{ user.profile_user.image.url }}" alt="User Image" width="60%" , heigth="60%">
-                            <span class="users-list-name">{{ user.profile_user.user }}</span>
-                            <span class="users-list-date">{{ use.profile_user.fonction }}</span>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% endfor %}
-                </ul>
-            </div> -->
-            <!-- /.card-body -->
+
         </div>
         <!--/.card -->
 
@@ -89,21 +74,20 @@
                         </thead>
                         <tbody>
                             {% for use in users %}
-                            {% if forloop.counter > 1 %}
+                            {% if forloop.counter > 0 %}
                             <tr>
-                                <td>
-                                    <a href="{% url 'projetapp:detailuser' use.id %}">
-                                        <img src="{{ use.profile_user.image.url }}" width="50px" , height="50px"
-                                            alt="photo">
-                                    </a>
-                                </td>
-                                <td>09/11/2019</td>
-                                <td><a href="{% url 'projetapp:detailuser' use.id %}"> {{ use.last_name }}
+                                <td style="vertical-align: baseline!important;"><a
+                                        href="{% url 'projetapp:detailuser' use.id %}"><img
+                                            src="{{ use.profile_user.image.url }}" alt="photo" width="50px" ,
+                                            height="50px"></a></td>
+                                <td style="vertical-align: baseline!important;">09/11/2019</td>
+                                <td style="vertical-align: baseline!important;"><a
+                                        href="{% url 'projetapp:detailuser' use.id %}"> {{ use.last_name }}
                                         {{ use.username }}</a> </td>
-                                <td>{{ use.profile_user.fonction }}</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>{{ use.profile_user.promotion }}</td>
+                                <td style="vertical-align: baseline!important;">{{ use.profile_user.fonction }}</td>
+                                <td style="vertical-align: baseline!important;">#</td>
+                                <td style="vertical-align: baseline!important;">#</td>
+                                <td style="vertical-align: baseline!important;">{{ use.profile_user.promotion }}</td>
                             </tr>
                             {% endif %}
                             {% endfor %}

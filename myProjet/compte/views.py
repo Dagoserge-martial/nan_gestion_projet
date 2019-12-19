@@ -4,10 +4,9 @@ from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeFor
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 
-# Create your models here.
-
-def login(request):
-    return render(request, 'page/compte/login.html')
+# Create your views here.
+def home(request):
+    return render(request, 'page/gitlogin/login.html')
 
 @login_required
 def settings(request):
@@ -37,7 +36,7 @@ def settings(request):
         'can_disconnect': can_disconnect,
     }
 
-    return render(request, 'setting.html', data)
+    return render(request, 'page/gitlogin/setting.html', data)
     
 @login_required
 def password(request):
@@ -57,6 +56,4 @@ def password(request):
             messages.error(request, 'Please correct the error below.')
     else:
         form = PasswordForm(request.user)
-    return render(request, 'page/compte/password.html', {'form': form})
-
-    
+    return render(request, 'page/gitlogin/password.html', {'form': form})

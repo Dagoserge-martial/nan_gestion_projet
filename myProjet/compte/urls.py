@@ -1,6 +1,7 @@
-"""social URL Configuration
+"""myProjet URL Configuration
+
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+app_name = 'compte'
+
 urlpatterns = [
-    path('', views.login, name='login'),
+    path('', views.home, name='home'),
     #Ajoiut de password user
     path('settings/', views.settings, name='settings'),
-    path('settings/password/', views.password, name='password'),
+    path('password/', views.password, name='password'),
 ]
