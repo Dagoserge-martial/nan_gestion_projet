@@ -78,7 +78,7 @@
                 <!-- LINE CHART -->
                 <div class="card card-info">
                     <div class="card-header">
-                    <h3 class="card-title">Graph</h3>
+                    <h3 class="card-title">Commits</h3>
     
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -262,7 +262,7 @@
               <!-- /.card-header -->
               <div class="card-body row">
                     <!-- Widget: user widget style 1 -->
-                    {% for user in taches %}
+                    {% for user in projet.user_projet.all %}
                     <div class="card card-widget widget-user col-md-4">
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <div class="widget-user-header bg-info">
@@ -333,7 +333,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for tache in taches %}
+                            {% for tache in projet.user_projet.all %}
                             <tr>
                                 <td>{{ forloop.counter }}</td>
                                 <td>{{ tache.tache.tache }}</td>

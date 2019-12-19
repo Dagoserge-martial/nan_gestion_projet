@@ -64,14 +64,15 @@ def list_user(request):
 def detailuser(request, id):
     profil = models.User.objects.get(pk=id)
     #profil = models.User.objects.get(id=4)
-    #nb = profil.user_tachecommit.all().filter(tache = models.Tache_projet.tache )
+    nb = profil.user_tachecommit.all().filter(tache = models.Tache_projet.objects.filter(isTermine=True))
+    projetp = profil.user_tachecommit.all()
     nbpt = profil.user_tachecommit.all().count()
     print(nbpt)
-    # print(nb)
     data = {
-        'users': 'active',
         'profil':profil,
         'nbpt':nbpt,
+        'nb':nb,
+        'projetp':projetp,
     }
     #{% url 'detailuser' home.pk %}
     return render(request, 'page/dashboard/detail_user.html', data)
@@ -81,6 +82,8 @@ def projetdetail(request, id):
     projet = models.Projet.objects.get(pk=id)
     projt = models.Projet.objects.filter(isTermine=True)
     taches = models.TacheUser.objects.filter(statut=True)
+    tch = projet.tache_projet.all().count()
+    print(tch)
 
     data = {
         'projet':projet,
@@ -93,7 +96,17 @@ def commit(request):
     return render(request, 'page/dashboard/commit.html')
 
 def commits(request):
-    return render(request, 'page/dashboard/commits.html')
+    user_comit = models.User.objects.all()
+    commit_date =  models.Commit.objects.distinct().order_by('-date_update')
+    #nb = user_comit.user_commit.all().filter(tache = models.Tache_projet.objects.filter(isTermine=True))
+
+    print(commit_date)
+    
+    data = {
+        'user_comit': user_comit,
+        'commit_date': commit_date,
+    }
+    return render(request, 'page/dashboard/commits.html', data)
 
 def newproject(request):
     clt = models.Client.objects.filter(statut=True)

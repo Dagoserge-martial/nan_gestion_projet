@@ -70,7 +70,8 @@ class Commit(models.Model):
     statut = models.BooleanField(default=True)
     date_add =  models.DateTimeField(auto_now_add=True)
     date_update =  models.DateTimeField(auto_now=True)
-
+    class Meta:
+        ordering = ['date_update']
 class Profile(models.Model):
     """Model definition for UserProfile."""
 

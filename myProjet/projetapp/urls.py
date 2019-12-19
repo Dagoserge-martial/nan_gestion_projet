@@ -32,5 +32,5 @@ urlpatterns = [
     path('commits/', views.commits, name='commits'),
     path('new_project/', views.newproject, name='newproject'),
     path('user_task/', views.newusetask, name='newusetask'),
-    path('login/', views.connexion, name='connexion'),
+    #path('login/', views.connexion, name='connexion'),
 ]

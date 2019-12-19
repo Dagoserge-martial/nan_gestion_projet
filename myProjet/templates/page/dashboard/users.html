@@ -50,8 +50,8 @@
                     {% if forloop.counter > 1 %}
                     <li class="col-lg-2 col-md-4">
                         <a href="{% url 'projetapp:detailuser' user.id %}">
-                        <img src="{{ user.profile_user.image.url }}" alt="User Image" width="60%", heigth="60%">
-                        <!-- <span class="badge badge-warning ">15</span> -->
+                        <img src="{{ user.profile_user.image.url }}" alt="User Image" width="130px", heigth="90px">
+                        
                         <span class="users-list-name" >{{ user.profile_user.user }}</span>
                         <span class="users-list-date">{{ use.profile_user.fonction }}</span>
                         </a>
@@ -59,9 +59,7 @@
                     {% endif %}
                     {% endfor %}
                 </ul>
-                <!-- /.users-list -->
             </div>
-            <!-- /.card-body -->
         </div>
         <!--/.card -->
 
@@ -79,6 +77,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                    <th>Photo</th>
                     <th>Date Naiss</th>
                     <th>Nom & Prenom</th>
                     <th>Fonction</th>
@@ -92,123 +91,18 @@
                     {% for use in users %}
                     {% if forloop.counter > 1 %}
                     <tr>
-                        <td>09/11/2019</td>
-                        <td><a href="{% url 'projetapp:detailuser' use.id %}"> {{ use.last_name }} {{ use.username }}</a> </td>
-                        <td>{{ use.profile_user.fonction }}</td>
-                        <td>#</td>
-                        <td>#</td>
-                        <td>{{ use.profile_user.promotion }}</td>
+                        <td style="vertical-align: baseline!important;"><a href="{% url 'projetapp:detailuser' use.id %}"><img src="{{ use.profile_user.image.url }}" alt="photo" width="50px", height="50px"></a></td>
+                        <td style="vertical-align: baseline!important;">09/11/2019</td>
+                        <td style="vertical-align: baseline!important;"><a href="{% url 'projetapp:detailuser' use.id %}"> {{ use.last_name }} {{ use.username }}</a> </td>
+                        <td style="vertical-align: baseline!important;">{{ use.profile_user.fonction }}</td>
+                        <td style="vertical-align: baseline!important;">#</td>
+                        <td style="vertical-align: baseline!important;">#</td>
+                        <td style="vertical-align: baseline!important;">{{ use.profile_user.promotion }}</td>
                     </tr>
                     {% endif %}
                     {% endfor %}
                     
-                <!-- <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN1.18</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN1.18</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN1.18</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN1.18</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>Oui</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN2.19</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN2.19</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN2.19</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN2.19</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN2.19</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN2.19</td>
-                </tr>
-                <tr>
-                    <td>09/11/2019</td>
-                    <td>Dago Serge Martial</td>
-                    <td>Dev Front</td>
-                    <td>05</td>
-                    <td>02</td>
-                    <td>NaN2.19</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th>Date Naiss</th>
-                    <th>Nom & Prenom</th>
-                    <th>Fonction</th>
-                    <th>Projet Participé</th>
-                    <th>Projet en cours ..</th>
-                    <th>Promotion</th>
-                </tr> -->
-                </tfoot>
+                    </tfoot>
                 </table>
             </div>
             <!-- /.card-body -->
