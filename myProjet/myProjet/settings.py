@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'rest_framework',
     'django_seed',
-    'compte.apps.CompteConfig',
 ]
 
 MIDDLEWARE = [

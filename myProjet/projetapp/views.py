@@ -22,19 +22,36 @@ def home(request):
     print(response.status_code)
     
     if response.status_code == 200:
-        nom_repos = contenu[0]["name"]
-        try :
-            nom_rep = models.Projet.objects.filter(titre=nom_repos)[:1].get()
-            exist_proj = False
-            print('Le projet <<', nom_rep,'>> existe deja !')
-        except:
-            exist_proj = True
-            print('nooooooooo')
+        for i in range(len(contenu)):
+            nom_repos = contenu[i]["name"]
+            #nom_repos = 'en Asie'
 
-        if exist_proj:
-            print('Je scrap **** ',nom_repos)
-        #print(json.dumps(contenu, indent=4) )
-        print(nom_repos)
+            #Vérifier si le repos exist
+            try :
+                nom_rep = models.Projet.objects.filter(titre=nom_repos)[:1].get()
+                exist_proj = False
+                print('Le projet <<', nom_rep,'>> existe deja !')
+
+                #Recupérer les commentaires en fonction du repos
+                url_comit = 'https://api.github.com/repos/Dagoserge-martial/{}/commits'.format(nom_repos)
+
+                resp = requests.get(url_comit)
+                if resp.status_code == 200:
+                    sult = resp.text
+                    resultt = json.loads(result)
+                    print('+++++++++', resp.status_code)
+                else:
+                    print('L api ne fonctionne pas !')
+            except:
+                exist_proj = True
+                print('nooooooooo')
+
+            #Enregistrer le repos s'il n'existe pas
+            if exist_proj:
+                print('Je scrap ****', nom_repos)
+            #print(json.dumps(contenu, indent=4) )
+            #print(nom_repos)
+
 
     projet_all = models.Projet.objects.all()
     projett = models.Projet.objects.filter(statut=False)
