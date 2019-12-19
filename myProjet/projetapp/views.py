@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import json
+import requests
 from django.core.validators import validate_email
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -10,6 +11,31 @@ from . import models
 # Create your views here.
 
 def home(request):
+
+    url = "https://api.github.com/users/Dagoserge-martial/repos"
+
+    response = requests.get(url)
+
+    resultat = response.text
+    contenu = json.loads(resultat)
+
+    print(response.status_code)
+    
+    if response.status_code == 200:
+        nom_repos = contenu[0]["name"]
+        try :
+            nom_rep = models.Projet.objects.filter(titre=nom_repos)[:1].get()
+            exist_proj = False
+            print('Le projet <<', nom_rep,'>> existe deja !')
+        except:
+            exist_proj = True
+            print('nooooooooo')
+
+        if exist_proj:
+            print('Je scrap **** ',nom_repos)
+        #print(json.dumps(contenu, indent=4) )
+        print(nom_repos)
+
     projet_all = models.Projet.objects.all()
     projett = models.Projet.objects.filter(statut=False)
     projetb = models.Projet.objects.filter(isTermine=True)
@@ -52,11 +78,14 @@ def list_user(request):
     users = models.User.objects.all()
     # proj = models.TacheUser.objects.filter(statut=True).filter( projet = models.User.user_tachecommit )
     # print(proj)
+    useT = users.count()
+    print(useT)
 
     data = {
         'myuser': 'active',
         'profile_all': profile_all,
         'users': users,
+        'useT': useT,
         #'proj':proj,
     }
     return render(request, 'page/dashboard/users.html', data)
