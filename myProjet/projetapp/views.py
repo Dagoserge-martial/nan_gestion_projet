@@ -50,13 +50,16 @@ def projet(request):
 def list_user(request):
     profile_all = models.TacheUser.objects.all()
     users = models.User.objects.all()
+    nbuser = users.count()-1
     # proj = models.TacheUser.objects.filter(statut=True).filter( projet = models.User.user_tachecommit )
     # print(proj)
+    print(nbuser)
 
     data = {
         'myuser': 'active',
         'profile_all': profile_all,
         'users': users,
+        'nbuser': nbuser,
         #'proj':proj,
     }
     return render(request, 'page/dashboard/users.html', data)
@@ -93,7 +96,13 @@ def commit(request):
     return render(request, 'page/dashboard/commit.html')
 
 def commits(request):
-    return render(request, 'page/dashboard/commits.html')
+    usercomit = models.User.objects.all()
+    comi = models.Commit.objects.filter(statut=True)
+    data = {
+        'usercomit': usercomit,
+        'comi':comi,
+    }
+    return render(request, 'page/dashboard/commits.html', data)
 
 def newproject(request):
     clt = models.Client.objects.filter(statut=True)
