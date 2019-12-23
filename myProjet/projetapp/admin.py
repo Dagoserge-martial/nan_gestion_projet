@@ -20,6 +20,9 @@ class ClientAdmin(admin.ModelAdmin):
     oerdering = ['nom']
     
     fieldsets = [
+        ('Nom',{
+            'fields':['nom']
+        }),
         ('Addresse et statut',{
             'fields':['adress','statut']
         }),
@@ -65,6 +68,12 @@ class ProjetAdmin(admin.ModelAdmin):
         }),
         ('Etat',{
             'fields':['progression','isTermine',]
+        }),
+        ('Cout',{
+            'fields':['budjet','dpense']
+        }),
+        ('Date',{
+            'fields':['date_debut','date_fin']
         }),
         
     ]

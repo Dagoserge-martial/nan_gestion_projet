@@ -24,7 +24,7 @@ def home(request):
     if response.status_code == 200:
         for i in range(len(contenu)):
             nom_repos = contenu[i]["name"]
-            #nom_repos = 'en Asie'
+            #nom_repos = 'Project_api'
 
             #Vérifier si le repos exist
             try :
@@ -42,6 +42,7 @@ def home(request):
                     print('+++++++++', resp.status_code)
                 else:
                     print('L api ne fonctionne pas !')
+
             except:
                 exist_proj = True
                 print('nooooooooo')
