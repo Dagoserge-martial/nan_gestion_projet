@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            {% if projt %}
+            {% if projet.isTermine %}
             <h1>{{ projet.titre }} de {{ projet.client.nom }} <span class="badge badge-danger" style="margin-top: -28px;">Terminé</span></h1>
             {% else %}
             <h1>{{ projet.titre }} de {{ projet.client.nom }} <span class="badge badge-success" style="margin-top: -28px;">En coure ...</span></h1>

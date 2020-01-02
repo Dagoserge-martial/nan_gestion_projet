@@ -141,7 +141,13 @@ def projetdetail(request, id):
     return render(request, 'page/dashboard/projetdetail.html', data)
 
 def commit(request):
-    return render(request, 'page/dashboard/commit.html')
+    projet = models.Projet.objects.all()
+    
+
+    data = {
+        'projet': projet,
+    }
+    return render(request, 'page/dashboard/commit.html', data)
 
 def commits(request):
     user_comit = models.User.objects.all()

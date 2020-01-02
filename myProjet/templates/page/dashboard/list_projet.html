@@ -38,7 +38,7 @@
                 <div class="info-box-content col-md-8">
                   <div>
                     <span class="info-box-text">{{ proj.titre|truncatechars:15 }}</span>
-                    {% if projt %}
+                    {% if proj.isTermine %}
                     <span class="badge badge-danger" style="float: right; margin-top: -25px;">Terminé</span>
                     {% else %}
                     <span class="badge badge-success" style="float: right; margin-top: -25px;">en cours ...</span>
