@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from  django.contrib.auth import  authenticate ,login ,logout
 from . import models
 
+import datetime
+
 # Create your views here.
 
 def home(request):
@@ -37,19 +39,42 @@ def home(request):
 
                 resp = requests.get(url_comit)
                 if resp.status_code == 200:
-                    sult = resp.text
+                    result = resp.text
                     resultt = json.loads(result)
+                    print(json.dumps(resultt, indent=4))
                     print('+++++++++', resp.status_code)
                 else:
                     print('L api ne fonctionne pas !')
 
-            except:
+            except Exception as e:
+                print('except ',e)
                 exist_proj = True
                 print('nooooooooo')
 
-            #Enregistrer le repos s'il n'existe pas
-            if exist_proj:
-                print('Je scrap ****', nom_repos)
+                #Enregistrer le repos s'il n'existe pas
+                if exist_proj:
+                    print('Je scrap ****', nom_repos)
+
+                    client = models.Client.objects.get(nom="NaN")
+
+                    description = contenu[i]["description"]
+                    # contenue = ""
+                    # cahier_de_charge = ""
+                    progression = 0
+                    budjet = ""
+                    dpense = ""
+                    isTermine = False
+                    date_debut = datetime.datetime.now()
+                    date_fin = datetime.datetime.now()
+
+                    try:
+                        newproject = models.Projet(client=client, titre=nom_repos, progression=progression, budjet=budjet, dpense=dpense, isTermine=isTermine, date_debut=date_debut, date_fin=date_fin)
+                        newproject.save()
+                        print('okkkkkkkkkkkkkkkk+++')
+                        
+                    except :
+                        pass
+                    
             #print(json.dumps(contenu, indent=4) )
             #print(nom_repos)
 

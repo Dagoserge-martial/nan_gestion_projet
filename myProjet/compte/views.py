@@ -50,10 +50,10 @@ def password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            messages.success(request, 'Your password was successfully updated!')
+            messages.success(request, 'Votre mot de passe a été mis à jour avec succès!')
             return redirect('password')
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, 'Veuillez corriger l\'erreur ci-dessous.')
     else:
         form = PasswordForm(request.user)
     return render(request, 'page/gitlogin/password.html', {'form': form})
